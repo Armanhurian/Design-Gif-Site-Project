@@ -13,6 +13,7 @@ let navbarCategoriesList = $.querySelector('.categoriesList')
 let topbar;
 
 
+
 window.addEventListener('scroll',()=>{
     if(scrollY < 110){  
 
@@ -39,22 +40,22 @@ window.addEventListener('scroll',()=>{
 
 navbarCompanySubmenu.forEach((company) => {
     navbarCompanyList.insertAdjacentHTML('beforeend',`
-        <li class="navbar-right_menu-item">
-        ${company['name']}
+        <li class="navbar-right_menu-item menu-item1">
+        <a href="index.html?Category/name=${company['name']}" class="navbar-right_menu-item-link" >${company['name']}</a>
         </li>      
     `)
 });
 navbarResourcesSubmenu.forEach((resource) => {
     navbarResourcesList.insertAdjacentHTML('beforeend',`
-        <li class="navbar-right_menu-item">
-        ${resource['name']}
+        <li class="navbar-right_menu-item menu-item2">
+        <a href="index.html?Resources/name=${resource['name']}" class="navbar-right_menu-item-link" >${resource['name']}</a>
         </li>      
     `)
 });
 navbarCategoriesSubmenu.forEach((category) => {
     navbarCategoriesList.insertAdjacentHTML('beforeend',`
-        <li class="navbar-right_menu-item">
-        ${category['name']}
+        <li class="navbar-right_menu-item menu-item3">
+        <a href="index.html?Category/name=${category['name']}" class="navbar-right_menu-item-link" >${category['name']}</a>
         </li>      
     `)
 });

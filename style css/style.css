@@ -20,6 +20,9 @@ a{
     transition: all 400ms ease;
     
 }
+a:hover{
+    color: var(--dark-color);
+}
 li{
     list-style: none;
 }
@@ -70,19 +73,40 @@ i{
     font-size: 0.9rem;
     color: var(--dark-color);
 }
+.menu-item1 {
+    width: 11rem;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+.menu-item2 {
+    width: 6rem;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+.menu-item3 {
+    width: 8rem;
+    text-align: center;
+    padding: 0.5rem 0;
+}
 .navbar-right_item-menu-list{
     transition: all 400ms ease;
     position: absolute;
     top: 2rem;
     box-shadow: 0 0 6px rgba(188, 184, 184, 0.491);
-    visibility: hidden;
-    padding: 1rem 2rem;
+    visibility: hidden; 
     opacity: 0;
     border-radius: 5px;
     background-color: white
 }
 .navbar-right_menu-item{
     margin-bottom: 0.5rem;
+    transition: all 400ms ease;
+}
+.navbar-right_menu-item:hover{
+    background-color: var(--theme-color);
+}
+.navbar-right_menu-item:hover .navbar-right_menu-item-link{
+    color: var(--white-color);
 }
 .navbar-right_item:hover .navbar-right_item-menu-list{
     visibility: visible;
@@ -196,7 +220,8 @@ i{
 }
 .main-header__container-right-icon{
     font-size: 1.5rem;
-    color: var(--dark-color);
+    color: rgb(66, 78, 78);
+    position: relative;
 }
 .box-6{
   position: relative;
@@ -204,6 +229,41 @@ i{
 .box-icon{
     position: absolute;
     top: 5rem;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 }
 /* finish navbar style */
+.main-header__container-right-icon:not(.playIcon)::after{
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    left: -5px;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: rgb(21 54 199 / 16%);
+    border-radius: 0.2rem;
+}
+.box-2{
+    margin: auto 0;
+}
+.playIcon{
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 50%;
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background: linear-gradient(to bottom , rgb(5, 5, 100),rgb(29, 29, 156),rgb(82, 82, 196));
+    margin-bottom: 1rem;
+}
+.main-header__container-right-text{
+    width:145px ;
+}
+
+.play-link-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}

@@ -9,10 +9,33 @@ let navbar = $.querySelector('.navbar')
 let navbarCompanyList = $.querySelector('.companyList')
 let navbarResourcesList = $.querySelector('.resourcesList')
 let navbarCategoriesList = $.querySelector('.categoriesList')
+let categoryHeaderTitle = $.querySelector('.category-header_title')
+let categoryHeaderContainerListPage1 = $.querySelector('.category-header_container-list-page1')
+let categoryHeaderContainerListPage2 = $.querySelector('.category-header_container-list-page2')
+let paginationBtn1 = $.querySelector('.paginationBtn1')
+let paginationBtn2 = $.querySelector('.paginationBtn2')
 
 let topbar;
 
 
+window.addEventListener('load',()=>{
+
+    if(scrollY < 110){  
+    
+        topbar = -8
+        navbar.classList.remove('fixed-header')
+        console.log(topbar);
+    
+    }else if(scrollY > 110 ){
+        let mathRound = Math.floor(scrollY)
+        topbar = 0
+        
+        console.log(mathRound);
+        
+        navbar.classList.add('fixed-header') 
+        navbar.style.top = topbar + 'rem'
+    }
+})
 
 window.addEventListener('scroll',()=>{
     if(scrollY < 110){  
@@ -59,3 +82,36 @@ navbarCategoriesSubmenu.forEach((category) => {
         </li>      
     `)
 });
+
+let myWord = 'My Dream On...'
+let wordCount = 0
+let titleOfCategoryLength  =  categoryHeaderTitle.innerHTML.length
+
+setInterval(()=>{
+    wordCount++
+    categoryHeaderTitle.innerHTML = ''
+    categoryHeaderTitle.innerHTML += myWord.slice(0,wordCount);
+    titleOfCategoryLength = wordCount
+
+    // console.log(wordCount);
+    // console.log(titleOfCategoryLength);
+    if(wordCount === 60){
+        wordCount = 0
+        
+    }
+},90)
+
+paginationBtn1.addEventListener('click',()=>{
+
+    categoryHeaderContainerListPage2.style.display = 'none'
+    categoryHeaderContainerListPage1.style.display = 'flex'
+    paginationBtn2.classList.remove('btnPaginationDesign')
+    paginationBtn1.classList.add('btnPaginationDesign')
+})
+paginationBtn2.addEventListener('click',()=>{
+    
+    categoryHeaderContainerListPage1.style.display = 'none'
+    categoryHeaderContainerListPage2.style.display = 'flex'
+    paginationBtn1.classList.remove('btnPaginationDesign')
+    paginationBtn2.classList.add('btnPaginationDesign')
+})

@@ -267,3 +267,171 @@ i{
     align-items: center;
     width: 100%;
 }
+.category-header{
+    margin: 5rem 0;
+    padding: 0 5rem;
+}
+.category-header_title{
+    margin: auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.category-header_container--items{
+    padding: 3rem 0;
+}
+.category-header_container-list{
+    
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+.category-header_container-item{
+
+    text-align: center;
+    /* margin: auto; */
+}
+
+.category-header_container-list-page1{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+.category-header_container-list-page2{
+    display: none;
+    justify-content: center;
+    gap: 3rem;
+}
+.category-header_container-link{
+    display: flex;
+    flex-direction: column;
+}
+
+.category-header_container-icon{
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+.greenDream{
+    color: #10ac84;
+    background-color: #10ac844d;
+    width: 39px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+.pinkDream{
+    color: #f368e0;
+    background-color: #f368e04d;
+    width: 39px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+.skyBlueDream{
+    color: #487eb0;
+    background-color: #487eb061;
+    width: 39px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+.lightRedDream{
+    color: #c44569;
+    width: 39px;
+    background-color: #c4456980;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+.lightBlueDream{
+    color: #474787;
+    width: 39px;
+    background-color: #47478763;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+.softRedDream{
+    color: #B53471;
+    width: 39px;
+    background-color: #b5347178;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+.lavenderTeaDream{
+    color: #D980FA;
+    width: 39px;
+    background-color: #d980fa66;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+.orangeDream{
+    color: #f09c23;
+    width: 39px;
+    background-color: #f79f1f36;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+.category-header_container-pagination{
+    margin: 1rem;
+}
+.category-header_container-pagination-list{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.category-header_container-pagination-btn{
+    width: 2rem;
+    height: 2rem;
+    background-color: #1B1464;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.category-header_container-pagination-item i{
+   font-size: 1rem;
+}
+
+.btnPaginationDesign{
+    background-color: white;
+    color: rgb(30, 29, 29);
+    box-shadow: 0 0 10px rgb(66 65 65 / 43%)
+}

@@ -25,6 +25,7 @@ let signUpContainerBtn = $.querySelector('.signUp-container-btn')
 let gmailParagraph = $.querySelector('.gmail-paragraph')
 let usernameParagraph = $.querySelector('.username-paragraph')
 let passwordParagraph = $.querySelector('.password-paragraph')
+let mySliderProductWrapper = $.querySelector('.mySliderProductWrapper')
 
 
 
@@ -174,4 +175,81 @@ window.addEventListener('load',()=>{
 signUpContainerIcon.addEventListener('click',()=>{
     signUpContainer.style.display = 'none'
     topbarHeaderMenu.style.display = 'block'
+})
+
+
+//start create slider 
+
+const swiper = new Swiper('.swiper',{
+
+    slidesPerView : 'auto',
+    speed:400,
+    grabCursor : true,
+    spaceBetween:20,
+
+    breakpoints:{
+       576:{
+        slidesPerView : 2
+       },
+       768:{
+        slidesPerView : 3
+       },
+       1300:{
+        slidesPerView : 4
+       },
+
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+})
+
+//finish create slider 
+
+
+
+let myProductArray = [
+
+    {id : 1 , imageSrc : 'image/Paint Slider/images (1).jfif' , title : 'A beautiful painting by George Anderson ...', price:'$23.99', popularCount:12},
+    {id : 2 , imageSrc : 'image/Paint Slider/images.jfif' , title : 'A special design by Michael from Oxford University...', price:'$19.50', popularCount:9},
+    {id : 3 , imageSrc : 'image/Paint Slider/images (3).jfif' , title : 'unique painting from the Winter Palace exhibition', price:'$36.89', popularCount:20},
+    {id : 4 , imageSrc : 'image/Paint Slider/images (4).jfif' , title : 'Selected painting from the National Gallery of Art', price:'$28.00', popularCount:16},
+    {id : 5 , imageSrc : 'image/Paint Slider/images (5).jfif' , title : 'Selected painting by Michael Phillips in harward university', price:'$16.00', popularCount:6},
+    {id : 6 , imageSrc : 'image/Paint Slider/images (6).jfif' , title : 'The most popular work from Florence Art Gallery...', price:'$40.99', popularCount:31},
+    {id : 7 , imageSrc : 'image/Paint Slider/images (7).jfif' , title : 'A selected work in Koetser Gallery in the london city...', price:'$34.99', popularCount:10},
+]
+
+myProductArray.forEach((product)=>{
+    mySliderProductWrapper.insertAdjacentHTML('beforeend',`
+      
+    <div class="swiper-slide  d-flex gap-4">
+               <div class="slider-product_container">
+                                <div>
+                                        <img class="slider-product_container-image"
+                                            src="${product.imageSrc}" alt="" srcset="">
+                                </div>
+                                    <p class="slider-product_container-title">${product.title}</p>
+                                <div class="d-flex justify-content-between">
+                                        <span class="slider-product_container-count">${product.price}</span>
+                                        <span class="slider-product_container-popular">
+                                            <i class="popular-heart-icon fa-solid fa-heart"></i>
+                                            ${product.popularCount}
+                                        </span>
+                                    </div>
+                                <div style="margin-top: 1rem; display: flex;
+                                align-items: center;">
+
+                                <a href="" class="slider-product_container-heart-icon-link">
+                                    <i class="slider-product_container-heart-icon fa-regular fa-heart"></i>
+                                </a>
+
+                            <button class="slider-product_container-btn">ADD TO CART</button>
+                        </div>
+                </div>
+        </div>
+    
+    
+    `)
 })

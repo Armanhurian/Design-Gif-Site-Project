@@ -26,6 +26,12 @@ let gmailParagraph = $.querySelector('.gmail-paragraph')
 let usernameParagraph = $.querySelector('.username-paragraph')
 let passwordParagraph = $.querySelector('.password-paragraph')
 let mySliderProductWrapper = $.querySelector('.mySliderProductWrapper')
+let activeHeartLike = $.querySelector('.active-heart-like')
+let activeSeenLike = $.querySelector('.active-seen-like')
+let activeNotSeenLike = $.querySelector('.active-no-seen-like')
+let shoppingContainerLikeIconLink = $.querySelector('.shopping-container-left-like-icon-link')
+let shoppingContainerAccountIconLink = $.querySelector('.shopping-container-left-account-icon-link')
+
 
 
 
@@ -216,12 +222,17 @@ let myProductArray = [
     {id : 2 , imageSrc : 'image/Paint Slider/images.jfif' , title : 'A special design by Michael from Oxford University...', price:'$19.50', popularCount:9},
     {id : 3 , imageSrc : 'image/Paint Slider/images (3).jfif' , title : 'unique painting from the Winter Palace exhibition', price:'$36.89', popularCount:20},
     {id : 4 , imageSrc : 'image/Paint Slider/images (4).jfif' , title : 'Selected painting from the National Gallery of Art', price:'$28.00', popularCount:16},
-    {id : 5 , imageSrc : 'image/Paint Slider/images (5).jfif' , title : 'Selected painting by Michael Phillips in harward university', price:'$16.00', popularCount:6},
+    {id : 5 , imageSrc : 'image/Paint Slider/images (5).jfif' , title : 'Selected painting by Michael philips in harward university', price:'$16.00', popularCount:6},
     {id : 6 , imageSrc : 'image/Paint Slider/images (6).jfif' , title : 'The most popular work from Florence Art Gallery...', price:'$40.99', popularCount:31},
     {id : 7 , imageSrc : 'image/Paint Slider/images (7).jfif' , title : 'A selected work in Koetser Gallery in the london city...', price:'$34.99', popularCount:10},
 ]
 
+
+
+
 myProductArray.forEach((product)=>{
+
+
     mySliderProductWrapper.insertAdjacentHTML('beforeend',`
       
     <div class="swiper-slide  d-flex gap-4">
@@ -241,7 +252,7 @@ myProductArray.forEach((product)=>{
                                 <div style="margin-top: 1rem; display: flex;
                                 align-items: center;">
 
-                                <a href="" class="slider-product_container-heart-icon-link">
+                                <a onclick="sliderHeartClickHandler(event,${product.id})" href="" class="slider-product_container-heart-icon-link">
                                     <i class="slider-product_container-heart-icon fa-regular fa-heart"></i>
                                 </a>
 
@@ -250,6 +261,101 @@ myProductArray.forEach((product)=>{
                 </div>
         </div>
     
+        
+        `)
+        
+    })
+
+    shoppingContainerLikeIconLink.addEventListener('click',(e)=>{
+       e.preventDefault()
+       activeNotSeenLike.style.opacity = 1
+       activeNotSeenLike.style.visibility = 'visible'
+
+       setTimeout(()=>{
+        activeNotSeenLike.style.opacity = 0
+        activeNotSeenLike.style.visibility = 'hidden'
+    },1000)
+    })
     
-    `)
+    let index = 0
+
+    let like = 0 
+
+    const sliderHeartClickHandler = (event,productID) => {
+        
+        like++
+
+        
+         activeHeartLike.innerHTML = like
+         activeHeartLike.style.opacity = 1
+         activeHeartLike.style.visibility = 'visible'
+                    
+         shoppingContainerLikeIconLink.addEventListener('click',(e)=>{
+            e.preventDefault()
+                activeHeartLike.style.opacity = 0
+                activeHeartLike.style.visibility = 'hidden'
+                activeSeenLike.style.opacity = 1
+                activeSeenLike.style.visibility = 'visible'
+                activeNotSeenLike.style.opacity = 0
+                activeNotSeenLike.style.visibility = 'hidden'
+                        
+                        
+                setTimeout(()=>{
+                    activeSeenLike.style.opacity = 0
+                    activeSeenLike.style.visibility = 'hidden'
+                },1000)
+            
+                        
+            like = 0
+                        
+        })
+
+        
+        event.preventDefault()
+        console.log(productID);
+
+        index = productID - 1
+        
+        console.log(myProductArray[index]);
+    }
+    
+    window.sliderHeartClickHandler = sliderHeartClickHandler
+
+
+shoppingContainerAccountIconLink.addEventListener('click',()=>{
+
+    topbarHeaderMenu.style.display = 'none'
+    signUpContainer.style.display = 'block'
+
+
+    signUpContainerBtn.addEventListener('click',()=>{
+        
+        if(!inputUsernameSignup.value){
+            inputUsernameSignup.style.borderColor = 'red'
+            usernameParagraph.innerHTML = 'Enter Username'
+            usernameParagraph.style.color = 'red'
+            usernameParagraph.style.fontSize = '10px'
+        }else if(!inputPasswordSignup.value){
+            inputPasswordSignup.style.borderColor = 'red'
+            passwordParagraph.innerHTML = 'Enter Password'
+            passwordParagraph.style.color = 'red'
+            passwordParagraph.style.fontSize = '10px'
+            
+        }else if(!inputGmailSignup.value){
+            inputGmailSignup.style.borderColor = 'red'
+            gmailParagraph.innerHTML = 'Enter Gmail'
+            gmailParagraph.style.color = 'red'
+            gmailParagraph.style.fontSize = '10px'
+
+        }else{
+            swal({
+                title:'You have successfully registered',
+                icons:'succsess',
+                buttons:'OK'
+            }).then((result)=>{
+                localStorage.setItem('username',inputUsernameSignup.value)
+                navbarRightLinkBtn.innerHTML = inputUsernameSignup.value
+            })
+        }
+    })
 })

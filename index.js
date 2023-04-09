@@ -27,11 +27,13 @@ let usernameParagraph = $.querySelector('.username-paragraph')
 let passwordParagraph = $.querySelector('.password-paragraph')
 let mySliderProductWrapper = $.querySelector('.mySliderProductWrapper')
 let activeHeartLike = $.querySelector('.active-heart-like')
+let activeShopCount = $.querySelector('.active-shop-count')
 let activeSeenLike = $.querySelector('.active-seen-like')
 let activeNotSeenLike = $.querySelector('.active-no-seen-like')
+let modalShoppingContainer = $.querySelector('.modal-shopping-container')
+//let progressBarInOrderShop = $.querySelector('.progress-bar-in-order-shop')
 let shoppingContainerLikeIconLink = $.querySelector('.shopping-container-left-like-icon-link')
 let shoppingContainerAccountIconLink = $.querySelector('.shopping-container-left-account-icon-link')
-
 
 
 
@@ -218,53 +220,56 @@ const swiper = new Swiper('.swiper',{
 
 let myProductArray = [
 
-    {id : 1 , imageSrc : 'image/Paint Slider/images (1).jfif' , title : 'A beautiful painting by George Anderson ...', price:'$23.99', popularCount:12},
-    {id : 2 , imageSrc : 'image/Paint Slider/images.jfif' , title : 'A special design by Michael from Oxford University...', price:'$19.50', popularCount:9},
-    {id : 3 , imageSrc : 'image/Paint Slider/images (3).jfif' , title : 'unique painting from the Winter Palace exhibition', price:'$36.89', popularCount:20},
-    {id : 4 , imageSrc : 'image/Paint Slider/images (4).jfif' , title : 'Selected painting from the National Gallery of Art', price:'$28.00', popularCount:16},
-    {id : 5 , imageSrc : 'image/Paint Slider/images (5).jfif' , title : 'Selected painting by Michael philips in harward university', price:'$16.00', popularCount:6},
-    {id : 6 , imageSrc : 'image/Paint Slider/images (6).jfif' , title : 'The most popular work from Florence Art Gallery...', price:'$40.99', popularCount:31},
-    {id : 7 , imageSrc : 'image/Paint Slider/images (7).jfif' , title : 'A selected work in Koetser Gallery in the london city...', price:'$34.99', popularCount:10},
+    {id : 1 , imageSrc : 'image/Paint Slider/images (1).jfif' , title : 'A beautiful painting by George Anderson ...', price:'$23.99', popularCount:4},
+    {id : 2 , imageSrc : 'image/Paint Slider/images.jfif' , title : 'A special design by Michael from Oxford University...', price:'$19.50', popularCount:16},
+    {id : 3 , imageSrc : 'image/Paint Slider/images (3).jfif' , title : 'unique painting from the Winter Palace exhibition', price:'$36.89', popularCount:11},
+    {id : 4 , imageSrc : 'image/Paint Slider/images (4).jfif' , title : 'Selected painting from the National Gallery of Art', price:'$28.00', popularCount:24},
+    {id : 5 , imageSrc : 'image/Paint Slider/images (5).jfif' , title : 'Selected painting by Michael philips in harward university', price:'$16.00', popularCount:18},
+    {id : 6 , imageSrc : 'image/Paint Slider/images (6).jfif' , title : 'The most popular work from Florence Art Gallery...', price:'$40.99', popularCount:33},
+    {id : 7 , imageSrc : 'image/Paint Slider/images (7).jfif' , title : 'A selected work in Koetser Gallery in the london city...', price:'$34.99', popularCount:22},
 ]
 
+let myCount = 0
 
 
+let productGenrate = ()=>{
 
-myProductArray.forEach((product)=>{
 
-
-    mySliderProductWrapper.insertAdjacentHTML('beforeend',`
-      
-    <div class="swiper-slide  d-flex gap-4">
-               <div class="slider-product_container">
-                                <div>
-                                        <img class="slider-product_container-image"
-                                            src="${product.imageSrc}" alt="" srcset="">
-                                </div>
-                                    <p class="slider-product_container-title">${product.title}</p>
-                                <div class="d-flex justify-content-between">
-                                        <span class="slider-product_container-count">${product.price}</span>
-                                        <span class="slider-product_container-popular">
-                                            <i class="popular-heart-icon fa-solid fa-heart"></i>
-                                            ${product.popularCount}
-                                        </span>
-                                    </div>
-                                <div style="margin-top: 1rem; display: flex;
-                                align-items: center;">
-
-                                <a onclick="sliderHeartClickHandler(event,${product.id})" href="" class="slider-product_container-heart-icon-link">
-                                    <i class="slider-product_container-heart-icon fa-regular fa-heart"></i>
-                                </a>
-
-                            <button class="slider-product_container-btn">ADD TO CART</button>
-                        </div>
-                </div>
-        </div>
     
+    myProductArray.forEach((product)=>{
+
+        mySliderProductWrapper.insertAdjacentHTML('beforeend',`
+          
+        <div class="swiper-slide  d-flex gap-4">
+                   <div class="slider-product_container">
+                                    <div>
+                                            <img class="slider-product_container-image"
+                                                src="${product.imageSrc}" alt="" srcset="">
+                                    </div>
+                                        <p class="slider-product_container-title">${product.title}</p>
+                                    <div class="d-flex justify-content-between">
+                                            <span class="slider-product_container-count">${product.price}</span>
+                                            <span id = ${product.popularCount} class="slider-product_container-popular"><i class="popular-heart-icon fa-solid fa-heart"></i><span class="product-count-like-love">${product.popularCount}
+                                        </div>
+                                    <div style="margin-top: 1rem; display: flex;
+                                    align-items: center;">
+    
+                                    <a onclick="sliderHeartClickHandler(event,${product.id})" href="" class="slider-product_container-heart-icon-link">
+                                        <i class="slider-product_container-heart-icon fa-regular fa-heart"></i>
+                                    </a>
+    
+                                <button onclick="sliderShoppingClickHandler(${product.id})" class="slider-product_container-btn">ADD TO CART</button>
+                            </div>
+                    </div>
+            </div>
         
-        `)
-        
-    })
+            
+            `)
+        })
+    }
+    
+    productGenrate()
+
 
     shoppingContainerLikeIconLink.addEventListener('click',(e)=>{
        e.preventDefault()
@@ -281,10 +286,11 @@ myProductArray.forEach((product)=>{
 
     let like = 0 
 
+    let setCountLike = 0
+
     const sliderHeartClickHandler = (event,productID) => {
         
         like++
-
         
          activeHeartLike.innerHTML = like
          activeHeartLike.style.opacity = 1
@@ -310,16 +316,24 @@ myProductArray.forEach((product)=>{
                         
         })
 
+        let likeCount = 0
         
         event.preventDefault()
-        console.log(productID);
-
+        
         index = productID - 1
         
-        console.log(myProductArray[index]);
+        let getAttributeElement = mySliderProductWrapper.children[index].children[0].children[2].children[1].children[1];
+
+        likeCount = getAttributeElement.innerHTML++
+        
+        console.log(getAttributeElement.innerHTML);
+
+        localStorage.setItem('save like count',getAttributeElement.innerHTML)
+
     }
     
     window.sliderHeartClickHandler = sliderHeartClickHandler
+
 
 
 shoppingContainerAccountIconLink.addEventListener('click',()=>{
@@ -359,3 +373,76 @@ shoppingContainerAccountIconLink.addEventListener('click',()=>{
         }
     })
 })
+
+
+// start shopping cart handler
+
+let count = 0
+
+let widthNavbar = 0
+
+let sliderShoppingClickHandler = (productID)=>{
+   console.log(myProductArray[productID-1]);
+
+
+   modalShoppingContainer.innerHTML = ''
+
+   modalShoppingContainer.insertAdjacentHTML('beforeend',`
+    <div class="text-center mb-3">
+     <i class="modal-shopping-container-icon fa-solid fa-circle-check"></i>
+     <span class="modal-shopping-container-span">Successfully added to cart.</span>
+    </div>
+
+    <div class="modal-shopping-container-bottom-box">
+     <div>
+         <img class="modal-shopping-container-image" src="${myProductArray[productID-1].imageSrc}" alt="" srcset="">
+     </div>
+     <div>
+       <h3 class="modal-shopping-container-title">${myProductArray[productID-1].title}</h3>
+       <span class="modal-shopping-container-price">${myProductArray[productID-1].price}</span>
+     </div>
+    </div>
+    <div class="progress-bar-in-order-shop"></div>
+      
+   `)
+
+   let progressBarInOrderShop = $.querySelector('.progress-bar-in-order-shop')
+
+   console.log(progressBarInOrderShop);
+
+   count ++
+
+   activeShopCount.innerHTML = count
+   activeShopCount.style.opacity = 1
+   activeShopCount.style.visibility = 'visible'
+   
+   
+   modalShoppingContainer.style.opacity = 1
+   modalShoppingContainer.style.visibility = 'visible'
+
+
+let intervalNavbar = setInterval(()=>{
+ 
+
+    widthNavbar++
+
+    console.log(widthNavbar);
+    progressBarInOrderShop.style.width = `${widthNavbar}%`
+
+    progressBarInOrderShop.style.opacity = 1
+    progressBarInOrderShop.style.visibility = 'visible'
+
+    if(widthNavbar === 100){
+      clearInterval(intervalNavbar)
+      modalShoppingContainer.style.opacity = 0
+      modalShoppingContainer.style.visibility = 'hidden'
+      widthNavbar = 0
+    }
+
+},40)
+
+   
+
+}
+
+window.sliderShoppingClickHandler = sliderShoppingClickHandler

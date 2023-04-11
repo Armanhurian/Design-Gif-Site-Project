@@ -34,6 +34,10 @@ let modalShoppingContainer = $.querySelector('.modal-shopping-container')
 //let progressBarInOrderShop = $.querySelector('.progress-bar-in-order-shop')
 let shoppingContainerLikeIconLink = $.querySelector('.shopping-container-left-like-icon-link')
 let shoppingContainerAccountIconLink = $.querySelector('.shopping-container-left-account-icon-link')
+let shoppingBasketContainerIconLink = $.querySelector('.shopping-container-left-shopping-icon-link')
+let shoppingCartContainer = $.querySelector('.shopping-cart-container')
+let productForBuyContainerWrapper = $.querySelector('.product-for-buy-container-wrapper')
+let removeShopCartIcon = $.querySelector('.removeShopCartIcon')
 
 
 
@@ -381,9 +385,37 @@ let count = 0
 
 let widthNavbar = 0
 
+let shoppingBasketArray = []
+
 let sliderShoppingClickHandler = (productID)=>{
    console.log(myProductArray[productID-1]);
 
+   
+   shoppingBasketArray.push(myProductArray[productID-1])
+   
+//    productForBuyContainerWrapper.innerHTML = ''
+
+//    shoppingCartContainer.style.display = 'block'
+
+//    console.log(shoppingBasketArray);
+
+//    shoppingBasketArray.forEach(item => {
+//        productForBuyContainerWrapper.insertAdjacentHTML('beforeend',`
+//        <div class="product-for-buy-container">
+//            <div style="margin-right: 1.3rem;">
+//                <img class="product-for-buy-container-image" src="${item.imageSrc}" alt="" srcset="">
+//            </div>
+//            <div style="width: 63%">
+//                <span class="product-for-buy-container-count">1x</span>
+//                <h5 class="product-for-buy-container-title">${item.title}</h5>
+//                <span class="product-for-buy-container-price">${item.price}</span>
+//            </div>
+//            <div class="shopping-cart-container-icon-box">
+//                <i class="fa-sharp fa-solid fa-trash-can shopping-cart-container-icon"></i>
+//            </div>
+//        </div>
+//        `) 
+//    })
 
    modalShoppingContainer.innerHTML = ''
 
@@ -426,7 +458,7 @@ let intervalNavbar = setInterval(()=>{
 
     widthNavbar++
 
-    console.log(widthNavbar);
+    //console.log(widthNavbar);
     progressBarInOrderShop.style.width = `${widthNavbar}%`
 
     progressBarInOrderShop.style.opacity = 1
@@ -441,8 +473,58 @@ let intervalNavbar = setInterval(()=>{
 
 },40)
 
-   
+console.log(shoppingBasketArray.length);
+
+shopBasketGenrateFunc(shoppingBasketArray)
 
 }
+
+
+
+
+let shopBasketGenrateFunc = (shoppArray) =>{
+    if(shoppingBasketArray.length === 0){
+        shoppingBasketContainerIconLink.addEventListener('click',()=>{
+            
+            alert('empty');
+        })
+    }
+    shoppingBasketContainerIconLink.addEventListener('click',()=>{
+            
+    
+    
+            productForBuyContainerWrapper.innerHTML = ''
+    
+            shoppingCartContainer.style.display = 'block'
+        
+            console.log(shoppArray);
+    
+            shoppArray.forEach(item => {
+                productForBuyContainerWrapper.insertAdjacentHTML('beforeend',`
+                <div class="product-for-buy-container">
+                    <div style="margin-right: 1.3rem;">
+                        <img class="product-for-buy-container-image" src="${item.imageSrc}" alt="" srcset="">
+                    </div>
+                    <div style="width: 63%">
+                        <span class="product-for-buy-container-count">1x</span>
+                        <h5 class="product-for-buy-container-title">${item.title}</h5>
+                        <span class="product-for-buy-container-price">${item.price}</span>
+                    </div>
+                    <div class="shopping-cart-container-icon-box">
+                        <i class="fa-sharp fa-solid fa-trash-can shopping-cart-container-icon"></i>
+                    </div>
+                </div>
+                `) 
+            })
+    
+            removeShopCartIcon.addEventListener('click',()=>{
+                shoppingCartContainer.style.display = 'none'
+            })
+            
+    }) 
+}
+
+
+
 
 window.sliderShoppingClickHandler = sliderShoppingClickHandler

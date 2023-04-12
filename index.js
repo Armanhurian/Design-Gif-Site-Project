@@ -38,6 +38,7 @@ let shoppingBasketContainerIconLink = $.querySelector('.shopping-container-left-
 let shoppingCartContainer = $.querySelector('.shopping-cart-container')
 let productForBuyContainerWrapper = $.querySelector('.product-for-buy-container-wrapper')
 let removeShopCartIcon = $.querySelector('.removeShopCartIcon')
+let shoppingDetailsDollorPriceText = $.querySelector('.shopping-details-container-dollor-price-text')
 
 
 
@@ -481,50 +482,125 @@ shopBasketGenrateFunc(shoppingBasketArray)
 
 
 
-
 let shopBasketGenrateFunc = (shoppArray) =>{
-    if(shoppingBasketArray.length === 0){
-        shoppingBasketContainerIconLink.addEventListener('click',()=>{
-            
-            alert('empty');
-        })
-    }
+    
     shoppingBasketContainerIconLink.addEventListener('click',()=>{
-            
-    
-    
-            productForBuyContainerWrapper.innerHTML = ''
-    
-            shoppingCartContainer.style.display = 'block'
         
-            console.log(shoppArray);
+        
+        productForBuyContainerWrapper.innerHTML = ''
+        
+        shoppingCartContainer.style.display = 'block'
+        
+        console.log(shoppArray);
+        
+        let totalPrice = 0
+        
+        shoppArray.forEach(item => {
+            
+            totalPrice += Number(item.price.slice(1,item.price.length-1))  
     
-            shoppArray.forEach(item => {
+                
                 productForBuyContainerWrapper.insertAdjacentHTML('beforeend',`
                 <div class="product-for-buy-container">
                     <div style="margin-right: 1.3rem;">
                         <img class="product-for-buy-container-image" src="${item.imageSrc}" alt="" srcset="">
-                    </div>
-                    <div style="width: 63%">
+                        </div>
+                        <div style="width: 63%">
                         <span class="product-for-buy-container-count">1x</span>
                         <h5 class="product-for-buy-container-title">${item.title}</h5>
                         <span class="product-for-buy-container-price">${item.price}</span>
-                    </div>
-                    <div class="shopping-cart-container-icon-box">
-                        <i class="fa-sharp fa-solid fa-trash-can shopping-cart-container-icon"></i>
-                    </div>
+                        </div>
+                        <div class="shopping-cart-container-icon-box">
+                        <i onclick ="trashRemoveShopHandler(${item.id})" class="fa-sharp fa-solid fa-trash-can shopping-cart-container-icon"></i>
+                        </div>
                 </div>
                 `) 
+
+               
             })
+
+            if(shoppingBasketArray.length === 0){
+                productForBuyContainerWrapper.insertAdjacentHTML('beforeend',`
+                <div class="product-for-buy-container">
+                  <div style ="margin: 2rem;" class="alert alert-danger">There are no items in your shopping cart</div>
+                </div>  
+                `) 
+            }
     
+            shoppingDetailsDollorPriceText.innerHTML = `$${totalPrice}`
+
             removeShopCartIcon.addEventListener('click',()=>{
                 shoppingCartContainer.style.display = 'none'
             })
             
+        
     }) 
+
+    
+
 }
 
 
 
+let trashRemoveShopHandler = (itemID)=>{
 
+
+    console.log(itemID);
+    let findIndexProduct = shoppingBasketArray.findIndex(product =>{
+       return product.id === itemID
+    })
+    console.log(findIndexProduct);
+
+    shoppingBasketArray.splice(findIndexProduct,1)
+
+    console.log(shoppingBasketArray);
+
+
+    productForBuyContainerWrapper.innerHTML = ''
+        
+    shoppingCartContainer.style.display = 'block'
+    
+    //console.log(shoppArray);
+    
+    let totalPrice = 0
+    
+    shoppingBasketArray.forEach(item => {
+        
+        totalPrice += Number(item.price.slice(1,item.price.length-1))  
+
+            
+            productForBuyContainerWrapper.insertAdjacentHTML('beforeend',`
+            <div class="product-for-buy-container">
+                <div style="margin-right: 1.3rem;">
+                    <img class="product-for-buy-container-image" src="${item.imageSrc}" alt="" srcset="">
+                    </div>
+                    <div style="width: 63%">
+                    <span class="product-for-buy-container-count">1x</span>
+                    <h5 class="product-for-buy-container-title">${item.title}</h5>
+                    <span class="product-for-buy-container-price">${item.price}</span>
+                    </div>
+                    <div class="shopping-cart-container-icon-box">
+                    <i onclick ="trashRemoveShopHandler(${item.id})" class="fa-sharp fa-solid fa-trash-can shopping-cart-container-icon"></i>
+                    </div>
+                    </div>
+            `) 
+
+           
+        })
+
+
+        if(shoppingBasketArray.length === 0){
+            productForBuyContainerWrapper.insertAdjacentHTML('beforeend',`
+            <div class="product-for-buy-container">
+              <div style ="margin: 2rem;" class="alert alert-danger">There are no items in your shopping cart</div>
+            </div>  
+            `) 
+        }
+
+        shoppingDetailsDollorPriceText.innerHTML = `$${totalPrice}`
+
+}
+
+
+window.trashRemoveShopHandler = trashRemoveShopHandler
 window.sliderShoppingClickHandler = sliderShoppingClickHandler

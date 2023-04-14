@@ -445,6 +445,7 @@ let sliderShoppingClickHandler = (productID)=>{
 
    count ++
 
+
    activeShopCount.innerHTML = count
    activeShopCount.style.opacity = 1
    activeShopCount.style.visibility = 'visible'
@@ -555,6 +556,22 @@ let trashRemoveShopHandler = (itemID)=>{
 
     console.log(shoppingBasketArray);
 
+    count--
+
+    if(count===0){
+        
+        activeShopCount.style.opacity = 0
+        activeShopCount.style.visibility = 'hidden'
+        
+    }else{
+        
+        activeShopCount.innerHTML = count
+        activeShopCount.style.opacity = 1
+        activeShopCount.style.visibility = 'visible'
+    }
+
+
+    console.log(count);
 
     productForBuyContainerWrapper.innerHTML = ''
         

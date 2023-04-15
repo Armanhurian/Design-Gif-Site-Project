@@ -38,6 +38,7 @@ let shoppingBasketContainerIconLink = $.querySelector('.shopping-container-left-
 let shoppingCartContainer = $.querySelector('.shopping-cart-container')
 let productForBuyContainerWrapper = $.querySelector('.product-for-buy-container-wrapper')
 let removeShopCartIcon = $.querySelector('.removeShopCartIcon')
+let footerContainer = $.querySelector('.footer-container')
 let shoppingDetailsDollorPriceText = $.querySelector('.shopping-details-container-dollor-price-text')
 
 
@@ -487,6 +488,7 @@ let shopBasketGenrateFunc = (shoppArray) =>{
     
     shoppingBasketContainerIconLink.addEventListener('click',()=>{
         
+        footerContainer.style.display = 'none'
         
         productForBuyContainerWrapper.innerHTML = ''
         
@@ -532,6 +534,7 @@ let shopBasketGenrateFunc = (shoppArray) =>{
 
             removeShopCartIcon.addEventListener('click',()=>{
                 shoppingCartContainer.style.display = 'none'
+                footerContainer.style.display = 'block'
             })
             
         

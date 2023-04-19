@@ -518,6 +518,7 @@ i{
     color: rgb(21 54 199 / 23%);
     /* transform: rotate(357deg); */
     transform: skew(-13deg, 0deg);
+    
 }
 .howDream-container-right{
     width: 32rem;
@@ -856,7 +857,10 @@ div .shopping-cart-container-icon{
     background-color: black;
     color: white;
 }
-
+.spanForShopping{
+    font-weight: bold;
+    font-size: 1.3rem;
+}
 .shopping-details-container-buttons-checkout-btn-link{
     border: 1px solid black;
     background-color: black;
@@ -940,4 +944,194 @@ div .shopping-cart-container-icon{
 }
 .footer-about-me{
     padding: 2rem 0;
+}
+.slider-product_container-title{
+    line-height: 1.5rem;
+}
+.navbar-right-menu-icon{
+    display: none;
+    font-size: 2rem;
+    /* font-weight: bold; */
+    box-shadow: 0 0 10 black;
+    border: 2px solid #41464b;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+
+/* responsive site */
+
+@media screen and (max-width : 1191px) {
+    .navbar-right-menu-icon{
+        display: block;
+    }
+    .navbar-right_list{
+        display: none;
+    }
+    .navbar-right-menu-icon{
+        float: right;
+    }
+    .navbar--right{
+        position: absolute;
+    /* height: 151rem; */
+        right: 0;
+        background-color: white;
+        width: 100%;
+        height: 85rem;
+        top: 0;
+    }
+
+    /*  */
+} 
+@media screen and (max-width :1057px ){
+    .main-header__container-left--col4{
+        width: 100%;
+    }
+    .main-header__container-right--col8{
+        width: 100%;
+        margin-top: 2rem;
+    }
+    .prevBtn, .nextBtn {
+    
+        top: 29%;
+    }   
+}
+@media screen and (max-width :990px ){
+   .dreamToCol4{
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    } 
+    .howDream-container-left-text-number{
+        display: flex;
+        justify-content: center;
+    }
+    .dreamToCol8{
+        width: 100%;   
+    }
+    .spanForShopping{
+        line-height: 2.2rem;
+    } 
+    .modal-shopping-container-span{
+        font-size: 0.8rem;
+    }
+    .modal-shopping-container{
+        left: 3rem;
+    }
+}
+@media screen and (max-width :932px ){
+    .modal-shopping-container-image{
+        width: 5rem;
+    }
+    .modal-shopping-container-title{
+        font-size: 0.84rem;
+        line-height: 1.1rem;
+    }
+}
+
+@media screen and (max-width :880px ){
+    .slider-product_container-btn{
+        font-size: 70%;
+    }
+    .slider-product_container-heart-icon{
+        font-size: 100%;
+    }
+    .modal-shopping-container-image{
+        width: 4.5rem;
+    }
+    /* .modal-shopping-container{
+        bottom: -3rem;
+    } */
+    .modal-shopping-container-title{
+        font-size: 0.79rem;
+    }
+    
+}
+@media screen and (max-width :813px ){
+    .box-icon{
+        left: 7px;
+        top: 27rem;
+    }
+    
+}
+@media screen and (max-width :789px ){
+    .slider-product_container-btn {
+        font-size: 65%;
+    }
+    .modal-shopping-container-price {
+        font-size: 1.2rem;
+    }
+    .modal-shopping-container-image{
+        width: 4rem;
+    }
+    .modal-shopping-container-title {
+        font-size: 0.76rem;
+    }
+    .footer-box-left{
+        width: 100%;
+    }
+    .footer-box-right{
+        display: none;
+    }
+    
+    /*  */
+}
+@media screen and (max-width :752px ){
+  .box-4{
+    width: 39%;
+    margin-top: 4rem;
+  }
+  .slider-product_container-heart-icon {
+    font-size: 1.3rem;
+  }
+  .slider-product_container-btn {
+    font-size: 90%;
+  }
+  .modal-shopping-container-bottom-box{
+    flex-direction: column;
+  }
+
+  .spanForShopping{
+    font-size: 1.1rem;
+  }
+
+}
+@media screen and (max-width :702px ){
+    .main-header__container-right-input{
+        width: 80%;
+    }
+    .main-header__container-right-link{
+        position: absolute;
+        right: 8rem;
+    }
+    .modal-shopping-container-span {
+        line-height: 1.3rem;
+    }
+    .modal-shopping-container{
+        bottom: -25px;
+    }
+}
+@media screen and (max-width :679.20px ){
+    .slider-product_container-image {
+        width: 50%;
+    }
+    .slider-my-image-justify{
+        display: flex;
+        justify-content: center;
+    }
+    .navbar__left-image {
+        width: 11rem;
+    }
+    .prevBtn, .nextBtn {
+        background-color: #e5ebe8c9;
+    }
+    .modal-shopping-container {
+        left: 67%;
+        bottom: 0;
+    }
+    .mytitleBox-co{
+        width: 100%;
+    }
+
 }

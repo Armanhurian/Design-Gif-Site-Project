@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="vendor/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="style css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style css/menu.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div id="signUP" class="signUp-container">
+            <div class="signUp-container-header">
+                <h3 class="signUp-container-title">Sign Up</h3>
+                <a class="signUp-container-link" href="#">
+                    <i class="fas fa-xmark signUp-container-icon"></i>
+                </a>
+            </div>
+            <h1 class="signUp-container--title-sign">Complete your profile</h1>
+            <div style="
+            padding: 0 1.2rem;
+            margin-bottom: 1.5rem;">
+                <p class="signUp-container-paragraph gmail-paragraph">G-mail</p>
+                <input class="inputGmail-signup signUp-container-input" placeholder="Enter G-mail" type="text">
+            </div>
+            <div style="
+            padding: 0 1.2rem;
+            margin-bottom: 1.5rem;">
+                <p class="signUp-container-paragraph username-paragraph">UserName</p>
+                <input class="inputUsername-signup signUp-container-input" placeholder="Enter UserName" type="text">
+            </div>
+            <div style="
+            padding: 0 1.2rem;
+            margin-bottom: 1.5rem;">
+                <p class="signUp-container-paragraph password-paragraph">Password</p>
+                <input class="inputPassword-signup signUp-container-input" placeholder="Enter Password"
+                    type="password">
+            </div>
+            <div style="
+            padding: 0 1.2rem;
+            margin-bottom: 1.5rem;">
+                <button class="signUp-container-btn ">Sign Up</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="menu-modal-container" id="menuModal">
+        <div class="icon-and-submit-login">
+            <div class="icon-and-submit-login-left">
+                <a class="navbar-right_link-btn" href="#">
+                    Sign Up
+                </a>
+            </div>
+            <div class="icon-and-submit-login-right">
+                <a href="index.html">
+                    <i class="fas navbar-right-menu-icon fa-xmark"></i>  
+                </a>
+            </div>
+        </div>
+        <ul class="navbar-right_list">
+            <li class="navbar-right_item">
+                <a class="navbar-right_link" href="index.html">Home</a>
+            </li>
+            <li class="navbar-right_item navbar--right-item1">
+                <p class="navbar-right_link" >
+                    Categories
+                    <i class="fas fa-chevron-down navbar-right_icon"></i>
+                </p>
+                <ul class="navbar-right_item-menu-list categoriesList">
+                    <!-- category item is loaded from js -->
+                </ul>
+            </li>
+            <li class="navbar-right_item navbar--right-item2">
+                <p class="navbar-right_link" >
+                    Resources
+                    <i class="fas fa-chevron-down navbar-right_icon"></i>
+                </p>
+                <ul class="navbar-right_item-menu-list resourcesList">
+                    <!-- resource item is loaded from js -->
+                </ul>
+            </li>
+            <li class="navbar-right_item navbar--right-item3">
+                <p class="navbar-right_link" >
+                    Company
+                    <i class="fas fa-chevron-down navbar-right_icon"></i>
+                </p>
+                <ul class="navbar-right_item-menu-list companyList">
+                    <!-- Company item is loaded from js -->
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="menu.js" type="module"></script>
+</body>
+</html>

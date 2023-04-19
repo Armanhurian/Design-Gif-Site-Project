@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+    
     <header class="header">
         <div class="topbar">
             <nav class="navbar">
@@ -24,11 +24,14 @@
                     <img class="navbar__left-image" src="image/logo/images.jpg" alt="logo">
                 </div>
                 <div class="navbar-right">
+                    <a href="menu.html">
+                        <i class="fas navbar-right-menu-icon fa-bars"></i>  
+                    </a>
                     <ul class="navbar-right_list">
                         <li class="navbar-right_item">
                             <a class="navbar-right_link" href="index.html">Home</a>
                         </li>
-                        <li class="navbar-right_item">
+                        <li class="navbar-right_item ">
                             <a class="navbar-right_link" href="index.html?Category">
                                 Categories
                                 <i class="fas fa-chevron-down navbar-right_icon"></i>
@@ -37,7 +40,7 @@
                                 <!-- category item is loaded from js -->
                             </ul>
                         </li>
-                        <li class="navbar-right_item">
+                        <li class="navbar-right_item ">
                             <a class="navbar-right_link" href="index.html?Resources">
                                 Resources
                                 <i class="fas fa-chevron-down navbar-right_icon"></i>
@@ -46,7 +49,7 @@
                                 <!-- resource item is loaded from js -->
                             </ul>
                         </li>
-                        <li class="navbar-right_item">
+                        <li class="navbar-right_item ">
                             <a class="navbar-right_link" href="index.html?Company">
                                 Company
                                 <i class="fas fa-chevron-down navbar-right_icon"></i>
@@ -55,7 +58,7 @@
                                 <!-- Company item is loaded from js -->
                             </ul>
                         </li>
-                        <li class="navbar-right_item">
+                        <li class="navbar-right_item navbar-right_item-btn-active">
                             <a class="navbar-right_link-btn" href="#">
                                 Sign Up
                             </a>
@@ -104,7 +107,7 @@
         <div class="main-header">
             <div class="main-header__container">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-4 main-header__container-left--col4">
                         <div class="main-header__container-left">
                             <h1 class="main-header__container-left-title">Bring <strong
                                     class="main-header__container-left-title-strong">your dream </strong>into reality
@@ -119,7 +122,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-8">
+                    <div class="col-8 main-header__container-right--col8">
                         <div class="main-header__container-right">
                             <div class="main-header__container-right-inputBox">
                                 <input class="main-header__container-right-input" type="text"
@@ -254,7 +257,7 @@
 
     <div class="howDream-container">
         <div class="row">
-            <div class="col-4">
+            <div class="col-4 dreamToCol4">
                 <div class="howDream-container-left">
                     <span class="howDream-container-left-text"><strong class="howDream-container-left-strong-text">how
                             to</strong> your dream a reality?</span>
@@ -263,7 +266,7 @@
                 </div>
             </div>
 
-            <div class="col-8">
+            <div class="col-8 dreamToCol8">
                 <div class="howDream-container-right">
                     <div class="howDream-container-right-titleBox">
                         <i class="howDream-container-right-titleBox-icon fa-solid fa-camera-retro"></i>
@@ -296,10 +299,10 @@
 
     <div class="shopping-container">
         <div class="row">
-            <div class="col-4">
+            <div class="col-4  mytitleBox-co">
                 <div class="shopping-container--left">
                     <div class="shopping-container-left-title text-center">
-                        <span style="font-weight: bold; font-size: 1.3rem">shopping and like products</span>
+                        <span  class="spanForShopping">shopping and like products</span>
 
                     </div>
                     <div class="shopping-container--left-box">
@@ -342,7 +345,7 @@
 
             <div class="col-8">
                 <div class="shopping-container-right">
-                    <div class="swiper">
+                    <div  class="swiper">
                         <div class="swiper-wrapper mySliderProductWrapper">
                             <!-- swiper slider loaded from js -->
                         </div>

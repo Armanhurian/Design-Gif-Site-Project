@@ -202,7 +202,7 @@ const swiper = new Swiper('.swiper',{
     spaceBetween:20,
 
     breakpoints:{
-       576:{
+       680:{
         slidesPerView : 2
        },
        768:{
@@ -226,11 +226,11 @@ const swiper = new Swiper('.swiper',{
 
 let myProductArray = [
 
-    {id : 1 , imageSrc : 'image/Paint Slider/images (1).jfif' , title : 'A beautiful painting by George Anderson ...', price:'$23.99', popularCount:4},
-    {id : 2 , imageSrc : 'image/Paint Slider/images.jfif' , title : 'A special design by Michael from Oxford University...', price:'$19.50', popularCount:16},
+    {id : 1 , imageSrc : 'image/Paint Slider/images (1).jfif' , title : 'A beautiful painting by George Anderson in umz...', price:'$23.99', popularCount:4},
+    {id : 2 , imageSrc : 'image/Paint Slider/images.jfif' , title : 'Special design by Michael from Oxford University...', price:'$19.50', popularCount:16},
     {id : 3 , imageSrc : 'image/Paint Slider/images (3).jfif' , title : 'unique painting from the Winter Palace exhibition', price:'$36.89', popularCount:11},
     {id : 4 , imageSrc : 'image/Paint Slider/images (4).jfif' , title : 'Selected painting from the National Gallery of Art', price:'$28.00', popularCount:24},
-    {id : 5 , imageSrc : 'image/Paint Slider/images (5).jfif' , title : 'Selected painting by Michael philips in harward university', price:'$16.00', popularCount:18},
+    {id : 5 , imageSrc : 'image/Paint Slider/images (5).jfif' , title : 'Selected painting by Michael in harward university', price:'$16.00', popularCount:18},
     {id : 6 , imageSrc : 'image/Paint Slider/images (6).jfif' , title : 'The most popular work from Florence Art Gallery...', price:'$40.99', popularCount:33},
     {id : 7 , imageSrc : 'image/Paint Slider/images (7).jfif' , title : 'A selected work in Koetser Gallery in the london city...', price:'$34.99', popularCount:22},
 ]
@@ -248,7 +248,7 @@ let productGenrate = ()=>{
           
         <div class="swiper-slide  d-flex gap-4">
                    <div class="slider-product_container">
-                                    <div>
+                                    <div class="slider-my-image-justify">
                                             <img class="slider-product_container-image"
                                                 src="${product.imageSrc}" alt="" srcset="">
                                     </div>
@@ -624,3 +624,14 @@ let trashRemoveShopHandler = (itemID)=>{
 
 window.trashRemoveShopHandler = trashRemoveShopHandler
 window.sliderShoppingClickHandler = sliderShoppingClickHandler
+
+
+
+// responsive in js 
+
+let navbarMenuIcon = $.querySelector('.navbar-right-menu-icon')
+let navbarListBox = $.querySelector('.navbar-right_list')
+let navbarRight = $.querySelector('.navbar-right')
+
+    
+

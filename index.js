@@ -525,7 +525,7 @@ let shopBasketGenrateFunc = (shoppArray) =>{
             if(shoppingBasketArray.length === 0){
                 productForBuyContainerWrapper.insertAdjacentHTML('beforeend',`
                 <div class="product-for-buy-container">
-                  <div style ="margin: 2rem;" class="alert alert-danger">There are no items in your shopping cart</div>
+                  <div class="myAlertBox alert alert-danger">There are no items in your shopping cart</div>
                 </div>  
                 `) 
             }

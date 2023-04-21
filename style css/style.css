@@ -958,7 +958,9 @@ div .shopping-cart-container-icon{
     border-radius: 0.3rem;
     cursor: pointer;
 }
-
+.myAlertBox{
+    margin: 2rem;
+}
 
 /* responsive site */
 
@@ -1053,7 +1055,9 @@ div .shopping-cart-container-icon{
         left: 7px;
         top: 27rem;
     }
-    
+    .signUp-container{
+        width: 100%;
+    }
 }
 @media screen and (max-width :789px ){
     .slider-product_container-btn {
@@ -1134,4 +1138,136 @@ div .shopping-cart-container-icon{
         width: 100%;
     }
 
+}
+@media screen and (max-width :657px ){
+    .category-header_container-text{
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+    }
+    .greenDream,.skyBlueDream,.lightRedDream,.pinkDream,.lavenderTeaDream,.orangeDream,.softRedDream,.lightBlueDream{
+        width: 35px;
+        height: 35px;
+    }
+    .howDream-container-right{
+        width: 27rem;
+    }
+    .howDream-container-right-titleBox-subtitle{
+        width: 27rem;
+    }
+    .modal-shopping-container{
+        width: 11rem;
+        left: 63%;
+        bottom: 0;
+    }
+    .navbar{
+        padding: 0 3rem;
+    }
+    .main-header__container-right-icon{
+        display: none;
+    }
+    .main-header__container-right-text{
+        display: none;
+    }
+}
+@media screen and (max-width :533px ){
+   
+    .howDream-container-right-titleBox-subtitle {
+        width: 85%;
+    }
+    .howDream-container-right {
+        width: 24rem;
+    }
+    .main-header__container-right-inputBox{
+        display: none;
+    }
+}
+@media screen and (max-width :533px ){
+
+    .shop-box-container-right{
+        width: 100%;
+    }
+    .shopping-container-right{
+        margin-bottom: 14rem;
+    }
+    .modal-shopping-container{
+
+        width: 70%;
+        left: 14%;
+        bottom: -20px;
+    }
+    .navbar__left-image {
+        width: 9.3rem;
+    }
+    .select-shopping-basket-container {
+        width: 100%;
+    }
+    .shopping-details-container-buttons-viewcart-btn-link {
+        font-size: 0.9rem;
+        padding: 0.8rem 2.3rem;
+    }  
+    .shopping-details-container-buttons-checkout-btn-link{
+        
+        font-size: 0.9rem;
+        padding: 0.8rem 2.3rem;
+    }  
+    .shopping-details-container-buttons{
+        gap: 1rem;
+    }
+    .navbar-right-menu-icon{
+        font-size: 1.4rem;
+    }
+    .navbar__left-image {
+        width: 8.3rem;
+    }
+}
+
+@media screen and (max-width :484px ){
+    .myParagraph{
+        font-size: 0.85rem;
+    }
+    .footer-box-left-text {
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+    }
+    .main-header {
+        padding: 0px 1.5rem;
+    }
+    .category-header {
+        padding: 0px 2rem;
+    }
+    .box-6{
+        width: 100%;
+    }
+    .navbar {
+        padding: 0px 1rem;
+    }
+    .howDream-container-right{
+        width: 22rem;
+    }
+}
+@media screen and (max-width :450px ){
+    .howDream-container-right{
+        width: 100%;
+    }
+    .howDream-container-right-titleBox-subtitle {
+        width: 100%;
+    }
+}
+@media screen and (max-width :415px ){
+
+    .slider-product_container-btn {
+        margin-bottom: 0.1rem;
+    }
+    .category-header_container-list-page1 {
+        gap: 2rem;
+    }
+    .category-header_container-list-page2 {
+        gap: 2rem;
+    }
+}
+@media screen and (max-width :380px ){
+    
+    .howDream-container-right-titleBox-subtitle {
+        font-size: 0.8rem;
+    }
 }
